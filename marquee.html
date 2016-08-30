@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title> 跑马灯 </title>
+</head>
+<body>
+  <div class='bg'></div>
+  <div id='scroll' style="position:relative;width: 200px; overflow:hidden; text-align:center;">
+    <span style="position:relative;white-space:nowrap;text-align:center;left:0;display:inline-block; "></span>
+  </div>
+  <script>
+    var str = '1000人群行业交流-IT/互联网renren';
+    var timer;
+    function $(str){
+      return document.getElementById(str)||'';
+    }
+    function nameNormal(str){
+      var $name = $('scroll').getElementsByTagName('span')[0];
+      $name.innerHTML = str;
+    }
+    function nameScroll(str){
+      if(true){
+        var $name = $('scroll').getElementsByTagName('span')[0];
+        $name.style.width = '100%';
+        scrollName.call()
+      }
+      function scrollName(){
+        var $name = $('scroll').getElementsByTagName('span')[0];
+        $name.style.width = 'auto';
+        $name.innerHTML = str + '&nbsp;&nbsp;' + str + '&nbsp;&nbsp;';
+        clearInterval(timer);
+        var imw = parseInt($name.offsetWidth/2);
+        $name.style.left = 0;
+        timer = setInterval(function(){
+          if(Math.abs(parseInt($name.style.left)) >= imw){
+            $name.style.left = 0;
+          }else{
+            $name.style.left = parseInt($name.style.left)-1 + 'px';
+          }
+        },35)
+      }
+    }
+    nameNormal(str);
+    nameScroll(str);
+  </script>
+</body>
+</html>
