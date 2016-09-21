@@ -3,7 +3,7 @@
 ```javascript
 (function(){
     var fn=function(o,url,line){
-        var str='cntverror,';
+        var str='js-err,';
         if(typeof o ==='object'){
             str+='url:'+o.filename+',line:'+o.lineno+',message:'+o.message;
         }else{
